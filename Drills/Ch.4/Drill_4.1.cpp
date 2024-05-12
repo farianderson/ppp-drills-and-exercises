@@ -8,7 +8,8 @@ const char* msg_input="Enter two integers";
 const char* msg_exit="program exit...";
 const char exit_char='|'; 
 
-int main() {
+int main() 
+{
 
     std::cout << msg_input << std::endl;
 
@@ -46,5 +47,5 @@ int main() {
 // If any of the inputs do not match this pattern, an "input not valid" message will be displayed and program will exit.
 // However, if more inputs than expected are provided (for example 5 inputs instead of 3),
 // it would automatically repeat the whole things (and will consider two extra inputs as new integers).
-// to stop this we could use std::cin.eof() after reading the character and find out if there's other inputs or not,
-// if yes then std::cin.clear() and std::cin.ignore() extra inputs but that is not covered in this chapter.
+// to stop this we could use std::cin.eof() after reading the exit character and find out if there's other inputs or not,
+// if yes then std::cin.clear() and std::cin.ignore() to eliminate extra inputs but that is not covered in this chapter.
