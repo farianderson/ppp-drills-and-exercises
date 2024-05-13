@@ -1,5 +1,5 @@
-// 1. Write a program that consists of a while-loop that (each time around the loop) reads in
-// two ints and then prints them. Exit the program when a terminating '|' is entered.
+// 2.Change the program to write out the smaller value is: followed by the smaller
+// of the numbers and the larger value is: followed by the larger value.
 
 #include <iostream>
 
@@ -16,8 +16,25 @@ int main()
     int input_int_1, input_int_2;
     while(std::cin >> input_int_1 >> input_int_2) 
     {
-        
+
         std::cout << "numbers are " << input_int_1 << " and " << input_int_2 << std::endl;
+
+        if (input_int_1 < input_int_2)
+        {
+            
+            std::cout << "the smaller value is " << input_int_1 << std::endl;
+            std::cout << "the larger value is " << input_int_2 << std::endl;
+
+        }
+
+        if (input_int_1 > input_int_2)
+        {
+
+            std::cout << "the smaller value is " << input_int_2 << std::endl;
+            std::cout << "the larger value is " << input_int_1 << std::endl;
+            
+        }
+
         std::cout << "Enter " << exit_char << " to exit or any other charater to repeat" << std::endl;
 
         char input_char;
