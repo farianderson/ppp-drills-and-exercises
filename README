@@ -1,8 +1,8 @@
--This is my attempt to get more familiar with git and github.
--I'm learning C++ so i decided to make a repository of my solutions to the drills and
- exersices in Bjarne Stroustrup's book Programming Principles and Practice using c++.
--The solutions are not guaranteed to be complete. Here you can find some solutions by
- the author at https://www.stroustrup.com/Programming/Solutions/exercise_solutions.html
--You can also find a lot of repositories on github that share their own solutions.
--Learning git from https://git-scm.com/book/en/v2
+-This is my attempt to get more familiar with git and github, not to draw attention ;)
+-I'm Learning git from  https://git-scm.com/book/en/v2
+-I'm also learning C++ so I decided to make a repository of my solutions to the drills
+ and exersices in the book of Programming Principles and Practice using c++.
+-These solutions I can not guarantee to be complete. but some exersices are officially
+ answered at  https://www.stroustrup.com/Programming/Solutions/exercise_solutions.html
+-you can also find many other repositories on github that sharing their own solutions.
 -Using debian-sid OS and vim editor.
