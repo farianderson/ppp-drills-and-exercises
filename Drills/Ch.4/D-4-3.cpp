@@ -1,5 +1,5 @@
-// 2. Change the program to write out the smaller value is: followed by the smaller
-//    of the numbers and the larger value is: followed by the larger value.
+// 3. Augment the program so that it writes the line "the numbers are equal" (only)
+//    if they are equal.
 
 #include <iostream>
 
@@ -33,6 +33,13 @@ int main()
             std::cout << "the smaller value is " << input_int_2 << std::endl;
             std::cout << "the larger value is " << input_int_1 << std::endl;
             
+        }
+
+        if (input_int_1 == input_int_2)
+        {
+
+            std::cout << "the numbers are equal" << std::endl;
+
         }
 
         std::cout << "Enter " << exit_char << " to exit or any other charater to repeat" << std::endl;

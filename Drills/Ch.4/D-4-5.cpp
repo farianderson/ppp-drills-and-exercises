@@ -1,10 +1,11 @@
-// 2. Change the program to write out the smaller value is: followed by the smaller
-//    of the numbers and the larger value is: followed by the larger value.
+// 5. Change the program so that it writes out "the numbers are almost equal"
+//    after writing out which is the smaller and the larger if the two numbers
+//    differ by less than 1.0 / 100.
 
 #include <iostream>
 
 // these constants are defined because they will be used more than once
-const char* msg_input="Enter two integers";
+const char* msg_input="Enter two double numbers";
 const char* msg_exit="program exit...";
 const char exit_char='|'; 
 
@@ -13,26 +14,38 @@ int main()
 
     std::cout << msg_input << std::endl;
 
-    int input_int_1, input_int_2;
-    while(std::cin >> input_int_1 >> input_int_2) 
+    double input_double_1, input_double_2;
+    while(std::cin >> input_double_1 >> input_double_2) 
     {
 
-        std::cout << "numbers are " << input_int_1 << " and " << input_int_2 << std::endl;
-
-        if (input_int_1 < input_int_2)
+        std::cout << "numbers are " << input_double_1 << " and " << input_double_2 << std::endl;
+        
+        double min,max;
+        if (input_double_1 < input_double_2)
         {
-            
-            std::cout << "the smaller value is " << input_int_1 << std::endl;
-            std::cout << "the larger value is " << input_int_2 << std::endl;
+
+            min = input_double_1;
+            max = input_double_2;
+            std::cout << "the smaller value is " << min << std::endl;
+            std::cout << "the larger value is " << max << std::endl;
 
         }
 
-        if (input_int_1 > input_int_2)
+        if (input_double_1 > input_double_2)
         {
 
-            std::cout << "the smaller value is " << input_int_2 << std::endl;
-            std::cout << "the larger value is " << input_int_1 << std::endl;
+            min = input_double_2;
+            max = input_double_1;
+            std::cout << "the smaller value is " << min << std::endl;
+            std::cout << "the larger value is " << max << std::endl;
             
+        }
+
+        if (max-min < .01)
+        {
+
+            std::cout << "the numbers are almost equal" << std::endl;
+
         }
 
         std::cout << "Enter " << exit_char << " to exit or any other charater to repeat" << std::endl;
@@ -57,8 +70,8 @@ int main()
 }
 
 // Note: This solution expects exactly three inputs from the user:
-// 1. first input should be an integer
-// 2. second input also an integer
+// 1. first input should be an double
+// 2. second input also an double
 // 3. third input soutld be a single character
 // If any of the inputs do not match this pattern, an "input not valid" message will be displayed and program will exit.
 // However, if more inputs than expected are provided (for example 5 inputs instead of 3) it would automatically repeat
