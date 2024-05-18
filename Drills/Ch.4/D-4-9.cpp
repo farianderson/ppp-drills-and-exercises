@@ -1,10 +1,8 @@
-// 7. Add a unit to each double entered; that is, enter values such as 10cm, 2.5in, 5ft, or 3.33m.
-//    Accept the four units: cm, m, in, ft. Assume conversion factors 1m == 100cm, 1in == 2.54cm, 1ft == 12in.
-//    Read the unit indicator into a string. You may consider 12 m (with a space between the number and the unit)
-//    equivalent to 12m (without a space).
-
-// Note: I assume that I should take two imputs from user. one for the number, and one for the unit.
-// other than that, it would be relatively difficult for this chapter.
+// 9. Keep track of the sum of values entered (as well as the smallest and the
+//    largest) and the number of values entered. When the loop ends, print the
+//    smallest, the largest, the number of values, and the sum of values. Note
+//    that to keep the sum, you have to decide on a unit to use for that sum;
+//    use meters.
 
 // Note: while inputting, it's not necessary to put a white-space between the number and unit.
 // for example: inputting "20m" will be no different than inputting "20 m". I guess that's becuase we've used
@@ -27,7 +25,8 @@ int main()
 
     std::cout << msg_input << std::endl;
 
-    double input_double, value;
+    int count = 0;
+    double input_double, value, sum;
     std::string unit;
     double min,max;
     bool first_input = true;
@@ -38,8 +37,10 @@ int main()
         {
             if(unit == accepted_units[i])
             {
+                count++;
                 unit_check = true;
                 value = input_double * unit_factors[i];
+                sum += value;
                 break;
             }
         }
@@ -83,6 +84,10 @@ int main()
             if (std::cin >> input_char)
                 if (input_char == exit_char)
                 {
+                    std::cout << "number of inputs: " << count << std::endl;
+                    std::cout << "sum of inputs: " << sum << 'm' << std::endl;
+                    std::cout << "the largest value: " << max << 'm' << std::endl;
+                    std::cout << "the smallest value: " << min << 'm' << std::endl;
                     std::cout << msg_exit  << std::endl;
                     return 0;
                 }
@@ -96,6 +101,12 @@ int main()
     }
 
     std::cout << "input not valid. " << msg_exit << std::endl;
+
+    std::cout << "-------------------------------------------" << std::endl;
+    std::cout << "number of inputs: " << count << std::endl;
+    std::cout << "sum of inputs: " << sum << std::endl;
+    std::cout << "the largest value: " << max << 'm' << std::endl;
+    std::cout << "the smallest value: " << min << 'm' << std::endl;
 
 }
 

@@ -1,10 +1,7 @@
-// 7. Add a unit to each double entered; that is, enter values such as 10cm, 2.5in, 5ft, or 3.33m.
-//    Accept the four units: cm, m, in, ft. Assume conversion factors 1m == 100cm, 1in == 2.54cm, 1ft == 12in.
-//    Read the unit indicator into a string. You may consider 12 m (with a space between the number and the unit)
-//    equivalent to 12m (without a space).
+// 8. Reject values without units or with "illegal" representations of units, such
+//    as y, yard, meter, km, and gallons.
 
-// Note: I assume that I should take two imputs from user. one for the number, and one for the unit.
-// other than that, it would be relatively difficult for this chapter.
+// Note: this is already done in D-4-7 so this code is just a copy of D-4-7.cpp.
 
 // Note: while inputting, it's not necessary to put a white-space between the number and unit.
 // for example: inputting "20m" will be no different than inputting "20 m". I guess that's becuase we've used
