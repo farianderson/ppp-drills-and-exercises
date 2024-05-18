@@ -16,26 +16,7 @@ const char exit_char='|';
 const std::vector<std::string> accepted_units = {"cm" , "m" , "in" , "ft"};
 const std::vector<double> unit_factors = {.01, 1, .0254, 12*.0254};
 
-double sum(std::vector<double> numbers)
-{
-    double sum;
-    for(double num:numbers)
-        sum += num;
-    return sum;
-}
-
 // a nasty way to find the minimum and maximum of a vector of double numbers ;)
-std::vector<double> minmax(std::vector<double> numbers)
-{
-    std::vector<double> o = {numbers[0],numbers[0]};
-    for(double num:numbers)
-    {
-        if(num < o[0]) o[0] = num;
-        if(num > o[1]) o[1] = num;
-    }
-
-    return o;
-}
 
 int main() 
 {
@@ -74,14 +55,22 @@ int main()
         if (std::cin >> input_char)
             if (input_char == exit_char)
             {
+                double min = values[0],max = values[0],sum = 0;
+                std::cout << std::endl << "the values are: " << std::endl;
+                for(double num:values)
+                {
+                    if(num < min) min = num;
+                    if(num > max) max = num;
+                    sum += num;
+                    std::cout << num << 'm' << std::endl;
+                }
+
+                std::cout << std::endl << "stats: " << std::endl;
                 std::cout << "number of inputs: " << values.size() << std::endl;
-                std::cout << "sum of inputs: " << sum(values) << 'm' << std::endl;
-
-                auto min_max = minmax(values);
-                std::cout << "the smallest value: " << min_max[0] << 'm' << std::endl;
-
-                std::cout << "the largest value: " << min_max[1] << 'm' << std::endl;
-                std::cout << msg_exit  << std::endl;
+                std::cout << "sum of inputs: " << sum << 'm' << std::endl;
+                std::cout << "the smallest value: " << min << 'm' << std::endl;
+                std::cout << "the largest value: " << max << 'm' << std::endl;
+                std::cout << std::endl << msg_exit  << std::endl;
                 return 0;
             }
 
