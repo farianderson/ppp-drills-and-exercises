@@ -1,0 +1,180 @@
+1. What is a computation?
+
+everything that has a beginning has an end neo...
+sorry,
+anything with inputs and outputs I think sounds like there's a computation
+going on there :)
+
+2. What do we mean by inputs and outputs to a computation? Give examples.
+
+seriously?
+
+3. What are the three requrements a programmer should keep in mind when
+expressing computations?
+
+1.simplicity
+2.correctness
+3.efficiency
+am I right?
+
+4. What does an expression do?
+
+An expression computes a value form a set of operands using operators.
+
+5. What is the difference between a statement and an expression, as described
+in this chapter?
+
+an expression doesn't do anything for us, it's just a mere computatoin and
+doesn't output anything. we use statements to tell the computer do what we
+want. for example to put the value of an expression into a variable.
+x = 1+1; 
+here "1+1" is an expression and "x = 1+1;" is a statement.
+
+6. What is an lvalue? List the operators that require an lvalue. Why do these 
+operators, and not the others, require an lvalue?
+
+as far as i remember an lvalue (short for left value) is the output of an
+assignment statement that's being stored in a variable. any opperator that
+makes an assignment comes with an lvalue, like "=", "+=", "-=", "*=", "/=",
+"%=", "++" ,"--".
+
+7. What is a constant expression?
+
+it's an expression which its value is known at compile time.
+
+8. What is a literal?
+
+the simplest expression is simply a literal value, such as 10, 'a', 3.14,
+or "Norah". page 94
+
+9. What is a symbolic constant and why do we use them?
+
+symbolic constant is a named object to which you can't give a new value
+after it has been initialized. we use them instead of magic constants to
+make code more readble and also to prevent accidental value changes.
+
+10. What is a magic constant? Give examples. 
+
+constants without a name, used only by literals. for example using 22/7
+instead of using a name like pi.
+
+constexpr double pi = 3.14;
+
+11. What are some operators that we can use for integers and floating-point
+values?
+
+comeon...
+
+12. What operators can be used on integers but not on floating-point numbers?
+
+    Aha! % is only for integers. so is %=.
+
+13. What are some operators that can be used for strings?
+
+    well, the assignment operator "=" ofcourse. I've used "+" to concatenate
+    them before. comparison operators like "==", "!=", "<", ">", ">=", "<=".
+
+14. When would a programmer prefer a switch-statement to an if-statement?
+
+    When there's too many items to select, switch-statement seems better than
+    nested if-statements for code readability if possible.
+
+15. What are some common problems with switch-statement?
+
+    can't do selection on everything, like strings. it can be error prone some-
+    times.
+
+16. What is the function of each part of the header line in a for-loop, and in
+    what sequence are they executed?
+
+    for ( initialization ; condition ; executing something )
+    
+    initializatoin will be executed once, then condition will be checked before
+    each iteration, and something will be executed after each iteration.
+
+    I hope I answered the Question correctly.
+
+17. When should the for-loop be used and when should the while-loop be used?
+
+    for-loop makes more sense when there is a fixed number of iterations, in
+    the other hand, while-loop is mostly used when the number of iterations is
+    not important and just some condition is needed to be checked.
+
+18. How do you print the numeric value of a char?
+
+    like this:
+
+    char c = 'c';
+    int i = c;
+    cout << i;
+
+    or just:
+
+    cout << int(c);
+
+19. Describe what the line "char foo(int x)" means in a function definition?
+
+    the function foo gets an input of type int and returns an output of type 
+    char.
+
+20. When should you define a separate function for part of a program? List
+    reasons.
+
+    Four reasons is mentioned in the book:
+    1- When we want to logically separate a computation from the program.
+    2- Making the code clear and more readble.
+    3- Easily reuse that computation anywhere in the program.
+    4- Eases testing.
+
+21. What can you do to an int that you cannot do to an string?
+
+    Arithmetic operations can't be done on strings. in the other hand, we can
+    concatenate strings, access specific characters in a string which cannot be
+    done on ints.
+
+22. What can you do to a string that you cannot do to an int?
+
+    refer to the previous answer (21).
+
+23. What is the index of the third element of a vector?
+
+    since the indices start from 0, the third index would be 2.
+
+24. How do you write a for-loop that prints every element of a vector?
+
+    consider the name of the vector is v:
+
+    for (int i = 0; i < vector.size(); i++)
+        cout << v[i] << endl;
+
+    or in an easier way:
+
+    for (auto element:v)
+        cout << element << endl;
+
+25. What does vector<char> alphabet(26); do?
+
+    declares a vector of chars of size 26, named alphabet.
+
+26. Describe what push_back() does to a vector?
+
+    it adds an element at the end of the vector.
+
+27. What does vector member size() do?
+
+    it returns the size of the vector.
+
+28. What makes vector so popular/useful?
+
+    based on the book, I think the abilities that vector provides to manage and
+    process data is the main reason.
+
+29. How do you sort the elements of a vector?
+
+    Well, based on the book we can make use of the sort algorithems in the c++
+    standard libraries.
+
+    my own algorithm:
+
+    most likely not so efficient.
+    
