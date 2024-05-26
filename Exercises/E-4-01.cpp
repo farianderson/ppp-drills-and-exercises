@@ -125,13 +125,11 @@ int square(int n)
 #include <string>         
 #include <vector>
 
-void print_bleep(std::string word, std::pmr::vector<std::string> bleep_words)
+void print_bleep(std::string word, std::vector<std::string> bleep_words)
 {
-    bool bleep = false;
     for(std::string s:bleep_words)
         if(word == s)
         {
-            bleep = true;
             std::cout << "BLEEP" << std::endl;
             return;
         }
@@ -141,7 +139,7 @@ void print_bleep(std::string word, std::pmr::vector<std::string> bleep_words)
 
 int main()
 {
-    std::pmr::vector<std::string> bleep_words = {"word1","word2","word3"};
+    std::vector<std::string> bleep_words = {"word1","word2","word3"};
     std::string input;
     while(std::cin >> input)
     {
