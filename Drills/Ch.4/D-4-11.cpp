@@ -6,7 +6,7 @@
 // a pattern like: cin >> doulbe >> string.
 
 //this time using std_lib_facilities :|
-#include "/home/fari/Downloads/std_lib_facilities.h"
+#include"../../std_lib_facilities.h"
 
 // these constants are defined because they may be used more than once
 const char* msg_input = "Enter a number followed by a unit, like 22 m or 12.5 cm\nThe acceptable units are : m, cm, in, ft";
