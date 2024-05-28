@@ -1,3 +1,4 @@
 *.[ao]
+*.swp
 build/
 test.cpp
