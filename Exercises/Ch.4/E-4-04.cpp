@@ -35,7 +35,8 @@ int main()
 
         int newb = (min + max)/2;
         
-        std::cout << min << "," << max << std::endl;
+        std::cout << std::endl;
+        std::cout << "(" << min << "," << max << ")" << std::endl;
 
         std::cout << "question " << ++i << std::endl;
         if(max == min + 1 || i == 7)
