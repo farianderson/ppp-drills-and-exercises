@@ -19,17 +19,8 @@ int main()
 {
     std::vector<int>primes = {};
 
-    std::cout << "printing prime numbers less than : ";
-
-    int n = 2;
-    if (!(std::cin >> n))
-    {
-        std::cout << "input should be an integer number. exit..."<< std::endl;
-        return 0;
-    }
-
     bool isPrime = true;
-    for(int i=2; i<n; i++)
+    for(int i=2; i<100; i++)
     {
         for(int p:primes)
             if(i%p == 0)
