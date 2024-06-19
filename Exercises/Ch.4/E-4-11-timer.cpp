@@ -15,6 +15,7 @@
 #include<vector>
 #include<iostream>
 #include<chrono>
+#include<math.h>
 
 int main()
 {
@@ -34,16 +35,21 @@ int main()
     bool isPrime = true;
     for(int i=2; i<n; i++)
     {
+        int sqrt_i = std::sqrt(i);
         for(int p:primes)
-            if(i%p == 0)
+            if(p<=sqrt_i)
             {
-                isPrime = false;
-                break;
+                if(i%p == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
             }
+            else break;
         if(isPrime)
         {
             primes.push_back(i);
-            //std::cout << i << ' ';
+            std::cout << i << ' ';
         }
 
         isPrime = true;
@@ -51,6 +57,9 @@ int main()
 
     auto end_time = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration<double>(end_time-start_time);
+    std::cout << std::endl;
     std::cout << duration.count();
     std::cout << std::endl;
 }
+// Note: this algorithm is slow : it took 159 seconds for n = 100'000'000
+// Device: Dell XPS-L501

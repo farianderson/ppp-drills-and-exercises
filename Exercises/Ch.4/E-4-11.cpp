@@ -14,6 +14,7 @@
 
 #include<vector>
 #include<iostream>
+#include<math.h>
 
 int main()
 {
@@ -22,12 +23,14 @@ int main()
     bool isPrime = true;
     for(int i=2; i<100; i++)
     {
+        int sqrt_i = std::sqrt(i);
         for(int p:primes)
-            if(i%p == 0)
-            {
-                isPrime = false;
-                break;
-            }
+            if(p<=sqrt_i)
+                if(i%p == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
         if(isPrime)
         {
             primes.push_back(i);
@@ -39,4 +42,3 @@ int main()
 
     std::cout << std::endl;
 }
-// Note: this algorithm to find prime numbers is slow

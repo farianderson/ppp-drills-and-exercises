@@ -7,6 +7,7 @@
 
 #include<vector>
 #include<iostream>
+#include<math.h>
 
 int main()
 {
@@ -24,12 +25,14 @@ int main()
     bool isPrime = true;
     for(int i=2; i<n; i++)
     {
+        int sqrt_i = std::sqrt(i);
         for(int p:primes)
-            if(i%p == 0)
-            {
-                isPrime = false;
-                break;
-            }
+            if(p<=sqrt_i)
+                if(i%p == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
         if(isPrime)
         {
             primes.push_back(i);
@@ -41,4 +44,5 @@ int main()
 
     std::cout << std::endl;
 }
-// Note: this algorithm is slow
+// Note: this algorithm is slow : it took 159 seconds for n = 100'000'000
+// Device: Dell XPS-L501

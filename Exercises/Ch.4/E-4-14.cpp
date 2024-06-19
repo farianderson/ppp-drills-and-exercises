@@ -20,11 +20,14 @@ int main()
         {
             int n = i+1;
             std::cout << n << ", ";
-            if(n<sqrt_max)
+            if(n<=sqrt_max)
             for(int j=n*n-1; j<max; j+=n)
                 numbers[j] = false;
         }
     }
 
-    std::cout << "   \t--finish--" << std::endl;
+    std::cout << "\t--finish--\t--finish--" << std::endl;
 }
+// it took 42 seconds for max = 100'000'000, not too fast, but better.
+// initializing the numbers vector will take a long time and a lot of memory.
+// Device: Dell XPS-L501
