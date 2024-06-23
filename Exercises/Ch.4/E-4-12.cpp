@@ -33,6 +33,7 @@ int main()
                     isPrime = false;
                     break;
                 }
+                else break;
         if(isPrime)
         {
             primes.push_back(i);

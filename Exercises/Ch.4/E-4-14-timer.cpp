@@ -25,7 +25,7 @@ int main()
         if(numbers[i] == true)
         {
             int n = i+1;
-            std::cout << n << ", ";
+            std::cout << n << ", " << std::flush;
             if(n<=sqrt_max)
             for(int j=n*n-1; j<max; j+=n)
                 numbers[j] = false;
