@@ -2,4 +2,4 @@
 *.[ao]
 *.swp
 build/
-*test*
+test/
