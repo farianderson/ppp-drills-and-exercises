@@ -1,0 +1,277 @@
+1. Name four major types of errors and briefly define each one
+
+   compile errors: syntax or type erros.
+   link errors: combining object files into an executable.
+   runtime errors: errors detected by hardware/OS or libraries/user.
+   logic errors(undetected errors, or not delivering the user's needs)
+
+2. What kind of errors can we ignore in student programs?
+
+   errors related to hardware or system software and program termination.
+
+3. What guarantees should every completed project offer?
+
+   It should produce the desired results for all legal inputs.
+   It should give proper error messages for all illegal inputs.
+
+4. List three approaches we can take to eliminate errors in programs and
+   produce acceptable software.
+
+   Organizing the software
+   Dubugging and testing
+   Make sure no serious errors remain
+
+5. Why do we hate debugging?
+
+   Ah! do we? I like it ;)
+   As the book says, "avoiding, finding, and correcting errors takes 90% or
+   more of the effort", well, so I guess software development actually means 
+   debugging, that's probably why I like debugging :-/. I don't like
+   debugging other's programs tho.
+
+6. What is a syntax error? give 5 examples.
+
+   c'mon, five examples???
+   a syntax error is a kind of compile time error which happens when not
+   following the language grammar. like:
+   
+   int a + 1; // doesn't mean anything ( I think :) )
+   a = b +*2; // requiers pointer operand (int invalid)
+   c+d = 2; // expression is not assignable
+   a = 2 // missing ';'
+   a = (2*2 -1; //missing ')' ofcourse :))
+
+7. What is a type error? give 5 examples.
+
+   Mismatches between types for variables, functions, etc. and types of values
+   or expressions assigned to them, passed as function arguments, etc.
+
+   int a = "10"; // string to int
+   int a = vector<int>(10); // vector to int
+  
+   int myfunc(int a, string b);
+   int a = myfunc(10); //the number of arguments mismatch
+   int a = myfunc(10, 2); // second argument should be string
+   int a = func(10,"hmm"); // func is not declared
+
+8. What is a linker error? give 3 examples.
+
+   tnx god it's 3.
+
+   Every entity of a program must be declared with exactly the same type in
+   each translation unit that It's used but must be defined only once in a
+   program. Otherwise the linker will give an error.
+
+   - One example would be a function that is declared but not defined in any
+     source file. So the linker will not be able to find a definition for it.
+   - Another example is a function that is both declared and defined but the 
+     source file in which it's used is not linked to the source file in which
+     it's defined. So the linker will not be able to find a definition for it.
+   - Another example which leads to a linker error is that the declaration is
+     not the same type as the definition. for example the function is declared
+     as int in the source file in which it's used, but in the source file in
+     which it's defined its type is double. In this situation the definition
+     will be ignored and the linker will not be able to find a definition for
+     the function.
+
+9. What is a logic error? give 3 examples.
+
+   Logic errors are a kind of runtime error that might or might not be caught
+   by Hardware, OS, libraries, or user code. they can cause crashes and unexp-
+   -ected behavior. They also include mismatches between the user needs and
+   what code delivers.
+
+   - Using incorrect operator in a calculation. like using + instead of *.
+   - Array out-of-bounds access.
+   - Overflow. When an arithmetic operation results in value too large to be
+     represented in the given type, leading to unexpected values.
+   - Use of uninitialized variables. Using such variable will result in unpre-
+     -dictable program behavior.
+
+10. List four potential sources of program errors discussed in the text.
+
+    - Poor specification
+    - Incomplete progrmas
+    - Logical errors
+    - Unexpected arguments/inputs/states.
+
+11. How do you know if a result is plausible? What techniques do you have to 
+    answer such questions?
+    
+    Estimation. It's an informal set of techniques that combine guessing with
+    a bit of calculation.
+
+12. How do you test if an input operation succeeded?
+
+    That's a weird question, If input operation here refers to input streams,
+    then we check it using if(cin). other types of input like function 
+    arguments can be checked by a precondition method like expect() method.
+
+13. compare and contrast having the caller of a function handle a run-time
+    error vs having the called function handle the run-time error.
+
+    Caller handles the error:
+
+    Pros:
+
+    - The caller has more context about how to respond to the error
+    - It allows for more flexible error handling based on the specific use 
+      case
+    - The called function can remain simpler and focus on its core functional-
+      -ity
+
+    Cons:
+
+    - Requires every caller to implement error handling, which can lead to 
+      duplicated code
+    - If a caller forgets to handle errors, it can lead to bugs
+    - The called function might not be able to fully validate its inputs
+
+    Called function handles the error:
+
+    Pros:
+
+    - Centralizes error handling, reducing code duplication
+    - Ensures that errors are always handled, even if the caller forgets
+    - The function can validate its inputs comprehensively
+
+
+    Cons:
+
+    - The function may not have enough context to handle the error appropriat-
+      -ely
+    - It can make the function more complex
+    - May limit flexibility in how errors are handled in different situations
+
+14. When is throwing an exception preferable to returning an "error value"?
+
+    Throwing an exception is generally preferable to returning an "error 
+    value".
+    The text recommends using exceptions for errors that are considered
+    "exceptional" - those that cannot be handled locally by the function.
+    Exceptions are preferable when we want to ensure errors are not ignored,
+    separate error detection from handling, and allow errors to be dealt with
+    at an appropriate level of the program, rather than forcing every caller
+    to explicitly check for and handle potential errors.
+
+15. When is returning an "error value" preferable to throwing an exception?
+
+    Some programs are designed to run continuously. In these cases, returning
+    an 'error value' is preferable to throwing an exception, because an uncau-
+    -ght exception would lead to program termination.
+
+    Example of such programs are:
+      
+      - Critical system softwares
+      - Long-running server processes
+      - Real-time control systems
+
+16. Describe the process of how the exceptions are thrown and caught.
+    
+    When a function detects an error it cannot handle locally, it throws an 
+    exception like this:
+      
+      throw Bad_input{};
+
+    This causes immediate exit from the function. Then any function in the 
+    call stack can catch it with a try-catch block and handle it, like this:
+    
+    try {
+      called_function();
+    }
+    
+    catch (Bad_input) {
+      // handling the error
+    }
+
+    The catch block is also called a handler. If the exception isn't caught by
+    any handler, the program terminates.
+
+17. Why, with a vector called v, is v[v.size()] a range error? What would be 
+    the result of calling this?
+    
+    It's an error because vector indices start from 0 and go up to size-1, not
+    1 to size. The result of calling v[v.size()] would be an 'out_of_range' 
+    exception being thrown.
+    
+18. What is an assertion?
+
+    An assertion is a statement that states (asserts) an invariant.
+
+19. Deﬁne precondition and postcondition; give an example (that is not the 
+    area() function from this chapter), preferably a computation that requires
+    a loop.
+
+    The conditions that inputs should satisfy at the beginning of a function 
+    are called preconditions, and the conditions that the output of a function
+    is expected to satisfy are called postconditions. 
+
+    For example, 'sum of 1 to n'.
+    a precondition for this can be that n should be greater than 1, another 
+    one is that n should be integer and not a floating-point number. we can 
+    rely on the compiler for the second condition because that would be a type 
+    error if not satistied.
+
+    For the postcondition we can estimate that the answer will always be less
+    than n*n and greater than 1. So:
+
+    int Sum_1_to_n(int n)
+    {
+      //precondition:
+    
+      if (n<1) throw Bad_input{};
+    
+      //logic:
+      int sum=0;
+      for(int i=1; i<=n; i++)
+      {
+        sum += i;
+      }
+      
+      //postcondition:
+    
+      if (sum >= n*n)||(sum <=1)
+        throw resultError{};
+    
+      return sum;
+    }
+
+20. When would you not test a precondition?
+
+    - In performance critical cases.
+    - In cases that testing preconditions are significantly more complex than
+      the logic itself.
+    - When preconditions are guaranteed by the system design or previous
+      checks (not recommended in Debug builds).
+
+21. When would you not test a postcondition?
+
+    Same as the precondition. :-/
+
+22. What are the steps in debugging a program?
+
+    - Getting the program to compile
+    - Get the program to link
+    - Get the program to do what it's supposed to do
+
+23. Why does commenting help while debugging?
+
+    Because it makes code more readable, so the chance to spot the bugs will
+    be increased.
+
+24. How does testing differ from debugging?
+
+    Testing is a way to search for errors. Debugging is eliminating them.
+
+25. What is a random number?
+
+    A random number is a number from a sequence of numbers where given the 
+    previous numbers, it's hard or even impossible to determine the next.
+
+26. How do we use random_int() and seed()?
+
+    random_int(min,max) // get an int from range [min:max]
+    random)int(max)     // get an int from range [0:max]
+
+    seed(s)             // seed with s
+    seed()              // seed with a really unpredictable value
