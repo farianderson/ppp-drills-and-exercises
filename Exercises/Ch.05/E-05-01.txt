@@ -1,0 +1,62 @@
+1.  If you haven't already, do the TRY THIS exercises from this chapter.
+
+    -Try to compile those examples and see how the compiler responds:
+     
+      bla bla bla .... lol
+
+    -Try to compile those examples and see how the compiler responds. Try
+     thinking of a few more errors yourself and try those:
+
+      too many try
+
+    -Test this program with a variety of values. Print out the values of area1
+     , area2, area3, and ratio. Insert more tests until all errors are caught.
+     How do you know that you caught all errors? This is not a trick question.
+     In this particular example, you can give a valid argument for having
+     caught all errors.
+
+      ok
+
+    -To see what an uncaught exception error looks like, run a small program
+     that uses error() without catching any exceptions.
+
+     int main(){
+       error("hi, I'm error");
+     }
+
+     terminate called after throwing an instance of 'std::runtime_error'
+       what():  hi, I'm error
+     Aborted
+
+    -Our hexagon was regular with 2cm sides. Did we get that answer right? 
+     Just do the "back of the envelope" calculation. Take a piece a paper and
+     scribble on it. Don’t feel that’s beneath you. Many famous scientists 
+     have been greatly admired for their ability to come up with an approxima-
+     -te answer using a pencil and the back of an envelope (or a napkin). This 
+     is an ability – a simple habit, really – that can save us a lot of time 
+     and confusion.
+
+     Yes it was right, the area of a regular hexagon is 3*sqrt(3)/2 * n^2.
+
+    -Estimate those driving times. Also, estimate the corresponding ﬂight
+     times (using ordinary commercial air travel). Then, try to verify your 
+     estimates by using appropriate sources, such as maps and timetables. 
+     We’d use online sources.
+
+      You can't be serious.
+
+    -Find a pair of values so that the precondition of this version of area 
+     holds, but the postcondition doesn’t.
+
+     int area(int length, int width)
+       // the arguments are positive
+     {
+       expect([&]{ return 0<length && 0<width; }, "bad arguments to area()");
+       int a = length∗width;
+       expect([&]{ return 0<a; }, "bad area() result");
+       return a;
+     }
+
+     Well, we just need big inputs so their multimplication will overflow.
+     for example let length and width be 1'000'000, their multimplication will
+     be : -727379968.
