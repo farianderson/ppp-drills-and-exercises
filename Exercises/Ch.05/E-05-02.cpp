@@ -20,7 +20,7 @@
 
 double ctok(double c)   // converts Celsius to Kelvin                      
 {
-  double k = c + 273.25;
+  double k = c + 273.15;
   return k;
 }
 
